@@ -9,14 +9,10 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class LoginDTO {
-	
-	private String usernameOrEmail;
-	
-	private String password;
-	
-	
-	
-	
+public class JWTAuthResponse {
 
+	private String accessToken;
+	
+	private String TokenType = "Bearer";
+	
 }

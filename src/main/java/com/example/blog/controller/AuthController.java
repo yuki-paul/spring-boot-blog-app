@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.blog.PayLoad.JWTAuthResponse;
 import com.example.blog.PayLoad.LoginDTO;
 import com.example.blog.PayLoad.RegisterDTO;
 import com.example.blog.service.AuthService;
@@ -21,8 +22,9 @@ public class AuthController {
 	
 	
 	@PostMapping("/login")
-	public ResponseEntity<String> loginService(@RequestBody LoginDTO logindto) {
-	  String response = authservice.login(logindto);
+	public ResponseEntity<JWTAuthResponse> loginService(@RequestBody LoginDTO logindto) {
+		System.out.println("from controller :"+logindto.getUsernameOrEmail() + " " +logindto.getPassword());
+	  JWTAuthResponse response = authservice.login(logindto);
 	  return ResponseEntity.ok(response);
 	}
 	

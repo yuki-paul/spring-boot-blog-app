@@ -11,6 +11,7 @@ public class PasswordGeneratorEncoder {
 		
 		System.out.println(passwordEncoder.encode("yugesh"));
 		System.out.println(passwordEncoder.encode("yuki"));
+		System.out.println(passwordEncoder.encode("Jothika@30"));
 
 	}
 

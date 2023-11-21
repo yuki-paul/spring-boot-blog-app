@@ -79,6 +79,12 @@ Map<String , String > errors = new HashMap();
 	 return new ResponseEntity<ErrorDetail>(errorDetail,HttpStatus.BAD_REQUEST);
 	 
 	}
+	
+	@ExceptionHandler(BlogApplicationException.class)
+	public ResponseEntity<ErrorDetail> handleBlogApplicationExcept(BlogApplicationException ex, WebRequest webRequest){
+	 ErrorDetail error = new ErrorDetail(new Date(), ex.getMessage(),webRequest.getDescription(false));
+	 return new ResponseEntity<ErrorDetail>(error,HttpStatus.BAD_REQUEST);
+	}
 	 
 	
 	@ExceptionHandler(Exception.class)
@@ -89,6 +95,8 @@ Map<String , String > errors = new HashMap();
 	 return new ResponseEntity<ErrorDetail>(errorDetail,HttpStatus.INTERNAL_SERVER_ERROR);
 	 
 	}
+	
+	
 	
 	
 	
